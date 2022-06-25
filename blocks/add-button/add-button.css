@@ -1,0 +1,29 @@
+.add-button{
+    background-image: url(../../images/add-buttonMAX.svg);
+    background-color: #000;
+    background-repeat: no-repeat;
+    border: none;
+    width: 150px;
+    height: 50px;
+    margin-left: 244px;
+    margin-top: auto;
+    margin-bottom: auto;
+    padding: 0;
+}
+@media (min-width:1025px) and (max-width: 1100px){
+    .add-button{
+    margin-left: 192px;
+    }
+}
+@media (min-width:941px) and (max-width: 1024px){
+    .add-button{
+    margin-left: 210px;
+    }
+}
+@media (min-width:320px) and (max-width: 940px){
+    .add-button{
+        background-image: URL(../../images/Add-ButtonMIN.svg);
+    width: 282px;
+    margin: 0;
+    }
+}

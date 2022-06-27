@@ -22,7 +22,7 @@
 }
 @media (min-width:320px) and (max-width: 940px){
     .add-button{
-        background-image: URL(../../images/Add-ButtonMIN.svg);
+        background-image: url(../../images/Add-ButtonMIN.svg);
     width: 282px;
     margin: 0;
     }

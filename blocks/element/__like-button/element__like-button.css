@@ -1,5 +1,5 @@
 .element__like-button{
-    background-color: #fff;
+    background-color: inherit;
     background-image: url(../../../images/like-button.svg);
     width: 22px;
     height: 19px;

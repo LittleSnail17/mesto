@@ -4,13 +4,17 @@
     font-size: 42px;
     line-height: 48px;
     color: #fff;
-    min-width: 294px;
-    margin: 0px;
+    max-width: 294px;
+    margin: 0;
+   text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden; 
 }
 @media (min-width:320px) and (max-width: 768px){
     .profile__name{
+        max-width: 189px;
     font-size: 27px;
-    line-height: 32.68px;
+    line-height: 33px;
     min-width: 189px;
     }
 }

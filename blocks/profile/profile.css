@@ -2,17 +2,13 @@
     max-width: 68.75%;
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
     margin-left: auto;
     margin-right: auto;
 }
-@media (min-width: 1025px) and (max-width: 1279px){
+@media (min-width: 941px) and (max-width: 1279px){
     .profile{
-    max-width: 81%;
-    }
-}
-@media (min-width: 941px) and (max-width: 1024px){
-    .profile{
-    max-width: 90%;
+    max-width: 880px;
     }
 }
 @media (min-width:320px) and (max-width: 940px){

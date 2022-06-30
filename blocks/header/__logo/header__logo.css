@@ -1,14 +1,13 @@
 .header__logo{
-    width: 142px;
-    height: 33px;
-    object-fit: cover;
+    min-width: 142px;
+    min-height: 33px;
     margin-bottom: 41px;
 }
-@media (min-width:320px) and (max-width: 768px){
+@media (min-width:320px) and (max-width: 605px){
     .header__logo{
-    width: 103.74px;
-    height: 24.4px;
-    margin-bottom: 31.6;
+    min-width: 103.74px;
+    min-height: 24.4px;
+    margin-bottom: 31.6px;
     margin-left: 27px;
     }
 }

@@ -1,3 +1,9 @@
 .element__like-button_active{
-    background-color: #000;
+    background-image: url(../../../../images/Active-Like-Button.svg);
+    width: 22px;
+    min-height: 19px;
+    border: none;
+    object-fit: cover;
+    background-repeat: no-repeat;
+    cursor: pointer;
 }

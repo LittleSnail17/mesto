@@ -10,6 +10,7 @@
     text-align: center;
     padding-top: 14px;
     padding-bottom: 14px;
+    cursor: pointer;
 }
 .popup__submit:hover{
     opacity: 0.8;

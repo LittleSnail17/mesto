@@ -1,4 +1,4 @@
-const popupEditProfileForm = document.querySelector('.popup__profile-form_edit')
+const popupEditProfileForm = document.querySelector('.popup__edit-form')
 const nameInput = document.querySelector('.popup__input_type_name')
 const jobInput = document.querySelector('.popup__input_type_job')
 const profileName = document.querySelector('.profile__name')

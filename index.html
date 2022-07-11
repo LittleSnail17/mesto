@@ -35,10 +35,10 @@
         <div class="popup__container">
             <button class="popup__close-button popup__close-button_edit-info" type="button"></button>
             <h2 class="popup__title">Редактировать профиль</h2>
-        <form class="popup__form" name="edit-profile-form">
+        <form class="popup__form popup__profile-form_edit" name="edit-profile-form">
             <input type="text" placeholder="Жак-Ив Кусто" value="Жак-Ив Кусто" name="name" class="popup__input popup__input_type_name">
             <input type="text" placeholder="Исследователь океана" value="Исследователь океана" name="job" class="popup__input popup__input_type_job">
-            <button class="popup__submit" type="submit">Сохранить</button>
+            <button class="popup__submit popup__submit_info" type="submit">Сохранить</button>
         </form>
         </div>
     </div>
@@ -47,13 +47,13 @@
             <button class="popup__close-button popup__close-button_add-card" type="button"></button>
             <h2 class="popup__title">Новое место</h2>
         <form class="popup__form popup__add-form" name="add-profile-form">
-            <input type="text" placeholder="Название" value="Название" name="info" class="popup__input popup__input_type_info">
-            <input type="text" placeholder="Ссылка на картинку" value="Ссылка на картинку" name="image" class="popup__input popup__input_type_image">
+            <input type="text" placeholder="Название" name="info" class="popup__input popup__input_type_info">
+            <input type="url" placeholder="Ссылка на картинку" name="image" class="popup__input popup__input_type_image">
             <button class="popup__submit popup__submit_card" type="submit">Создать</button>
         </form>
         </div>
     </div>
-    <div class="popup popup_image">
+    <div class="popup popup_open-card">
         <div class="popup__container-image">
         <button class="popup__close-button popup__close-button_card" type="button"></button>
         <img class="popup__photo" src=" " alt="фото">

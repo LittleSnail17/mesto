@@ -20,8 +20,22 @@ const elementInfo = document.querySelector('.element__title')
 const infoInput = document.querySelector('.popup__input_type_info');
 const imageInput = document.querySelector('.popup__input_type_image');
 
+function closePopupKeyDown(evt) {
+    if (evt.key === 'Escape'){
+        closePopup(document.querySelector('.popup_opened'));
+    }
+};
+
+function closePopupByOverlay (evt) {
+    if (evt.target.classList.contains('popup')){
+        closePopup(evt.target);
+    }
+};
+
 function openPopup(popup) {
    popup.classList.add('popup_opened');
+   popup.addEventListener('click', closePopupByOverlay);
+   document.addEventListener('keydown', closePopupKeyDown);
 }
 
 profileEditButton.addEventListener('click', function(){
@@ -34,6 +48,8 @@ profileAddButton.addEventListener('click', function() {
 
 function closePopup(popup){
    popup.classList.remove('popup_opened');
+   popup.removeEventListener('click', closePopupByOverlay);
+   document.removeEventListener('keydown', closePopupKeyDown);
 }
 
 popupEditInfoCloseButton.addEventListener('click', function(){

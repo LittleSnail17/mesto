@@ -70,4 +70,4 @@ const showInputError = (formElement, inputElement, errorMessage) => {
     });
   }
   
-  enableValidation();
+  enableValidation(config);

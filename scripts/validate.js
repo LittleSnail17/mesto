@@ -60,7 +60,7 @@ const showInputError = (formElement, inputElement, errorMessage) => {
     });
   };
 
-  function enableValidation() {
+  function enableValidation(config) {
     const formList = Array.from(document.querySelectorAll(config.formSelector));
     formList.forEach((formElement) => {
       formElement.addEventListener("submit", (evt) => {

@@ -31,7 +31,7 @@ function closePopupKeyDown(evt) {
 };
 
 popupAll.forEach((popup) =>{
-    popup.addEventListener('click', (evt) => {
+    popup.addEventListener('mousdown', (evt) => {
      if (evt.target.classList.contains('popup') || evt.target.classList.contains('popup__close-button')){
        closePopup(evt.target);
        };

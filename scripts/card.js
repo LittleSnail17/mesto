@@ -1,5 +1,10 @@
+import { openPopup } from "./index.js";
 
- export default class CreateCard {
+const cardPopup = document.querySelector('.popup_open-card');
+const cardPopupImage = cardPopup.querySelector('.popup__photo');
+const cardPopupCaption = cardPopup.querySelector('.popup__caption')
+
+ export default class Card {
     constructor (data , templateSelector){
         this._image = data.image;
         this._info = data.info;
@@ -22,14 +27,14 @@
     
     _handleDelete(){
         this._element.remove();
+        this._element = null;
     }
 
     _openCardPopup(){
-        const cardPopup = document.querySelector('.popup_open-card');
-
-        cardPopup.querySelector('.popup__photo').src = this._image;
-        cardPopup.querySelector('.popup__caption').textContent = this._info;
-        cardPopup.classList.add('popup_opened');
+       cardPopupImage.src = this._image;
+       cardPopupImage.alt = this._info;
+       cardPopupCaption.textContent = this._info;
+       openPopup(cardPopup);
     }
 
     _setCardEventListeners(){
@@ -52,6 +57,7 @@
         this._setCardEventListeners();
     
         this._element.querySelector('.element__photo').src = this._image;
+        this._element.querySelector('.element__photo').alt = this._info;
         this._element.querySelector('.element__title').textContent = this._info;
     
         return this._element;

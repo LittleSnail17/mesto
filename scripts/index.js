@@ -1,4 +1,4 @@
-import CreateCard from "./card.js";
+import Card from "./card.js";
 import { config, FormValidator} from './FormValidator.js';
 
 const popupEditProfileForm = document.querySelector('.popup__edit-form')
@@ -36,7 +36,7 @@ popupAll.forEach((popup) =>{
     });
  });
 
-function openPopup(popup) {
+export function openPopup(popup) {
    popup.classList.add('popup_opened');
    document.addEventListener('keydown', closePopupKeyDown);
 }
@@ -111,28 +111,38 @@ profileValidator.enableValidation();
 const placeValidator = new FormValidator(config, popupAddCardForm);
 placeValidator.enableValidation();
 
-  const renderInitialCards = () => {
-    initialCards.forEach(item => {
-      const cardTemplate = new CreateCard(item, '.template');
-      const card = cardTemplate.generateCard();
-      elements.append(card);
-    })
-  }
-  renderInitialCards();
+initialCards.forEach(function (initialCards) { 
+    const card = createCard(initialCards); 
+    insertCard(card); 
+});
+
+function insertCard(data) {
+    elements.prepend(data); 
+}
+
+function createCard(data) {
+    const newCard = new Card(data, '.template') 
+    const elementCard = newCard.generateCard()
+    return elementCard 
+}
+function createNewCard() {
+    const newCard = {
+    info: infoInput.value,
+    alt: infoInput.value,
+    image: imageInput.value
+    };
+  return newCard;
+};
 
 function addSubmitHandler (evt) {
     evt.preventDefault();
-    const cardTemplate = new CreateCard({
-      info: infoInput.value,
-      image: imageInput.value,
-    }, '.template');
-    elements.prepend(cardTemplate.generateCard());
+    const elementCard = createCard(createNewCard());
+    insertCard(elementCard);
     
-    closePopup(popupAddCard);
-    popupAddCardForm.reset();
+    closePopup(popupAddCard); 
     
-    cardAddSubmit.setAttribute('disabled', true);
-    cardAddSubmit.classList.add('popup__submit_disabled');  
+    popupAddCardForm.reset(); 
+    placeValidator.resetValidation()
 }  
 
 popupAddCardForm.addEventListener('submit', addSubmitHandler); 

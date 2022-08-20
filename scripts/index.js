@@ -29,7 +29,7 @@ function closePopupKeyDown(evt) {
 };
 
 popupAll.forEach((popup) =>{
-    popup.addEventListener('mousdown', (evt) => {
+    popup.addEventListener('mousedown', (evt) => {
      if (evt.target.classList.contains('popup') || evt.target.classList.contains('popup__close-button')){
        closePopup(evt.target);
        };
@@ -136,11 +136,12 @@ function createNewCard() {
 
 function addSubmitHandler (evt) {
     evt.preventDefault();
+    
     const elementCard = createCard(createNewCard());
     insertCard(elementCard);
     
     closePopup(popupAddCard); 
-    
+
     popupAddCardForm.reset(); 
     placeValidator.resetValidation()
 }  

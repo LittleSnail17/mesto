@@ -1,6 +1,9 @@
 import Card from "./card.js";
 import { config, FormValidator} from './FormValidator.js';
 
+export const cardPopup = document.querySelector('.popup_open-card');
+export const cardPopupImage = cardPopup.querySelector('.popup__photo');
+export const cardPopupCaption = cardPopup.querySelector('.popup__caption')
 const popupEditProfileForm = document.querySelector('.popup__edit-form')
 const nameInput = document.querySelector('.popup__input_type_name')
 const jobInput = document.querySelector('.popup__input_type_job')

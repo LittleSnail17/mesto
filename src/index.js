@@ -12,14 +12,14 @@ import { initialCards,
         popupEditProfileForm,
         nameInput,
         jobInput,
-        popupAddCardForm
+        popupAddCardForm,
+        profileInputInfo
 
 } from './scripts/utils/constants.js';
+import { UserInfo } from './scripts/components/UserInfo.js';
 import { Section } from "./scripts/components/Sections.js";
 import { PopupWithImage } from "./scripts/components/PopupWithImage.js";
 import { PopupWithForm } from "./scripts/components/PopupWithForm.js";
-
-
 
 const profileValidator = new FormValidator(config, popupEditProfileForm);
 profileValidator.enableValidation();
@@ -27,16 +27,22 @@ profileValidator.enableValidation();
 const placeValidator = new FormValidator(config, popupAddCardForm);
 placeValidator.enableValidation();
 
-function submitEditFormHandler () {
+const userInfo = new UserInfo({nameSelector:'.profile__name', infoSelector:'.profile__text'})
 
-   profileName.textContent = nameInput.value;
-   profileText.textContent = jobInput.value;
+function submitEditFormHandler (name, job) {
+   userInfo.setUserInfo(name, job);
 }
 
-const profileFormPopup = new PopupWithForm({ handleSubmitForm: submitEditFormHandler, popupSelector: '.popup_edit-info' });
-profileFormPopup.setEventListeners();
-profileEditButton.addEventListener('click', () => profileFormPopup.openPopup())
+const profileFormPopup = new PopupWithForm({ handleSubmitForm: () => {submitEditFormHandler(nameInput.value, jobInput.value);}, popupSelector: '.popup_edit-info' });
 
+profileFormPopup.setEventListeners();
+profileEditButton.addEventListener('click',  () => {
+   const {name, job } = userInfo.getUserInfo();
+   nameInput.value = name;
+   jobInput.value = job;
+   profileFormPopup.openPopup();
+});
+  
 function createCard(data) {
    const newCard = new Card(data, '.template', () => {
      placePopup.openPopup({ info: data.info, image: data.image })

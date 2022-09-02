@@ -27,13 +27,13 @@ profileValidator.enableValidation();
 const placeValidator = new FormValidator(config, popupAddCardForm);
 placeValidator.enableValidation();
 
-const userInfo = new UserInfo({nameSelector:'.profile__name', infoSelector:'.profile__text'})
+const userInfo = new UserInfo({nameSelector:'.profile__name', infoSelector:'.profile__text'});
 
-function submitEditFormHandler (name, job) {
-   userInfo.setUserInfo(name, job);
-}
-
-const profileFormPopup = new PopupWithForm({ handleSubmitForm: () => {submitEditFormHandler(nameInput.value, jobInput.value);}, popupSelector: '.popup_edit-info' });
+const profileFormPopup = new PopupWithForm({ handleSubmitForm: (data) => {
+   userInfo.setUserInfo(
+     data.name,
+     data.job);}, 
+     popupSelector: '.popup_edit-info' });
 
 profileFormPopup.setEventListeners();
 profileEditButton.addEventListener('click',  () => {
@@ -62,23 +62,20 @@ cardSection.renderItems();
 const placePopup = new PopupWithImage('.popup_open-card');
 placePopup.setEventListeners();
 
-const addSubmitHandler = function () {
+const addSubmitHandler = function (data) {
    const newCard = {
-      info: infoInput.value,
-      alt: infoInput.value,
-      image: imageInput.value
+      info: data.info,
+      alt: data.info,
+      image: data.image,
       };
-
     renderer(newCard);
-
-    popupAddCardForm.reset(); 
-    placeValidator.resetValidation()
-
 }
 
 const cardFormPopup = new PopupWithForm({ handleSubmitForm: addSubmitHandler, popupSelector: '.popup_add-card' });
 cardFormPopup.setEventListeners();
-profileAddButton.addEventListener('click', () => cardFormPopup.openPopup());
-
+profileAddButton.addEventListener('click', () => {
+popupAddCardForm.reset(); 
+placeValidator.resetValidation();
+cardFormPopup.openPopup()});
 
 

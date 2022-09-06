@@ -14,6 +14,7 @@
         <section class="profile">
         <div class="profile__main-information">
         <img class="profile__avatar" src="<%=require('./images/HeaderAvatar.png')%>" alt="Аватар профиля">
+        <button class="profile__avatar-button" type="button"></button>
          <div class="profile__info">
              <div class="profile__data">
              <h1 class="profile__name">Жак-Ив Кусто</h1>
@@ -63,6 +64,24 @@
         <p class="popup__caption"></p>
         </div>
     </section>
+    <section class="popup popup_avatar" id="popup-avatar">
+        <div class="popup__container popup__container-avatar" id="avatar-container">
+            <button class="popup__close-button popup__close-button_avatar" type="button"></button>
+            <h2 class="popup__title">Обновить aватар</h2>
+        <form class="popup__form popup__avatar" name="avatar-profile-form" novalidate>
+            <input type="url" id="popup__input-avatar" placeholder="Ссылка на фото профиля" name="avatar" class="popup__input popup__input-avatar popup__input_type_avatar" required>
+            <span class="popup__input-form-error popup__input-avatar-error"> </span>
+            <button class="popup__submit popup__submit_avatar" type="submit">Сохранить</button>
+        </form>
+        </div>
+    </section>
+    <section class="popup popup_delete" id="popup-delete">
+        <div class="popup__container popup__container-delete" id="delete-container">
+            <button class="popup__close-button popup__close-button_delete" type="button"></button>
+            <h2 class="popup__title">Вы уверены?</h2>
+            <button class="popup__submit popup__submit_delete" type="submit">Да</button>
+        </div>
+    </section>
     </div>
     <template class="template">
         <div class="element">
@@ -70,7 +89,10 @@
             <button class="element__delete" type="button"></button>
             <div class="element__description">
                 <h2 class="element__title">Название места</h2>
+                <div class="element__button-container">
                 <button class="element__like-button" type="button"></button>
+                <span class="element__counter">0</span>
+                </div>
             </div>
         </div>
     </template>

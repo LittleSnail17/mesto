@@ -16,8 +16,7 @@ import Popup from "./Popup.js";
     _getTemplateCardElement(){
         const cardElement = document
           .querySelector(this._templateSelector)
-          .content
-          .querySelector('.element')
+          .content.querySelector('.element')
           .cloneNode(true);
     
         return cardElement;

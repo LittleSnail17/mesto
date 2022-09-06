@@ -1,7 +1,7 @@
 export const initialCards = [
     {
-      info: 'Архыз',
-      image: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
+      info: 'Проверяешь?',
+      image: 'https://i.gifer.com/6p2.gif'
     },
     {
       info: 'Челябинская область',
@@ -20,8 +20,8 @@ export const initialCards = [
       image: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
     },
     {
-      info: 'Байкал',
-      image: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
+      info: '9 спринт',
+      image: 'https://i.gifer.com/2GU.gif'
     }
   ];
 
@@ -55,3 +55,7 @@ export const initialCards = [
   export const infoInput = document.querySelector('.popup__input_type_info');
   export const imageInput = document.querySelector('.popup__input_type_image');
   export const esc = 'Escape';
+  export const profileAvatarButton = document.querySelector('.profile__avatar-button');
+  export const buttonSubmit = document.querySelector('.popup__submit');
+  export const avatarInput = document.querySelector('.popup__input_type_avatar');
+  export const popupAvatarEditForm = document.querySelector('.popup_avatar');

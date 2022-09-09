@@ -43,3 +43,4 @@
 @import url(../blocks/popup/__input/popup__input-avatar.css);
 @import url(../blocks/element/__button-container/element__button-container.css);
 @import url(../blocks/element/__counter/element__counter.css);
+@import url(../blocks/element/__delete/_hidden/element__delete_hidden.css);

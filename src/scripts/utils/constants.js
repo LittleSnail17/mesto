@@ -1,29 +1,3 @@
-export const initialCards = [
-    {
-      info: 'Проверяешь?',
-      image: 'https://i.gifer.com/6p2.gif'
-    },
-    {
-      info: 'Челябинская область',
-      image: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-    },
-    {
-      info: 'Иваново',
-      image: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-    },
-    {
-      info: 'Камчатка',
-      image: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-    },
-    {
-      info: 'Холмогорский район',
-      image: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-    },
-    {
-      info: '9 спринт',
-      image: 'https://i.gifer.com/2GU.gif'
-    }
-  ];
 
   export const config = {
     formSelector: '.popup__form',

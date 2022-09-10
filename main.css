@@ -6,7 +6,8 @@
 .header__logo{margin-bottom:41px;min-height:33px;min-width:142px}@media (min-width:320px) and (max-width:605px){.header__logo{margin-bottom:31.6px;margin-left:27px;min-height:24.4px;min-width:103.74px}}
 .profile{display:flex;flex-direction:row;justify-content:space-between;margin-left:auto;margin-right:auto;max-width:68.75%}@media (min-width:941px) and (max-width:1279px){.profile{max-width:880px}}@media (min-width:320px) and (max-width:940px){.profile{align-items:center;flex-direction:column;max-width:88.125%}}
 .profile__main-information{display:flex;flex-direction:row}@media (min-width:320px) and (max-width:940px){.profile__main-information{align-items:center;flex-direction:column}}
-.profile__avatar{max-height:120px;width:120px}
+.profile__avatar-button{background:transparent;background-position:50%;background-size:cover;border:none;border-radius:120px;cursor:pointer;display:block;height:120px;padding:0;position:absolute;width:120px}.profile__avatar-button:before{background-color:rgba(0,0,0,.8);background-image:url(a086f758840ae814ecde.svg);background-position:50%;background-repeat:no-repeat;content:"";display:block;height:100%;opacity:0;transition:opacity .8s ease;width:100%}.profile__avatar-button:hover:before{opacity:1}
+.profile__avatar{border:none;border-radius:120px;max-height:120px;-o-object-fit:cover;object-fit:cover;width:120px}
 .profile__info{box-sizing:border-box;display:flex;flex-direction:row;margin-bottom:25px;margin-left:30px;margin-top:22px;max-width:336px;min-height:73px}@media (min-width:320px) and (max-width:940px){.profile__info{justify-content:center;margin-bottom:36px;margin-left:0;margin-top:26px;min-height:54px;min-width:100%}}
 .profile__data{display:flex;flex-direction:column}@media (min-width:320px) and (max-width:940px){.profile__data{text-align:center}}
 .profile__name{color:#fff;font-size:42px;font-style:normal;font-weight:500;line-height:48px;margin:0;max-width:294px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}@media (min-width:320px) and (max-width:768px){.profile__name{font-size:27px;line-height:33px;max-width:189px;min-width:189px}}
@@ -38,4 +39,11 @@
 .popup__caption{color:#fff;font-size:12px;font-weight:400;line-height:15px;margin:10px 0 0;max-width:291px}
 .popup__photo{background-color:transparent;margin:0;max-height:75vh;max-width:75vw;padding:0}
 .popup_open-card{background-color:rgba(0,0,0,.9)}
+.popup__container-avatar{min-height:272px}
+.popup__input-avatar{margin-bottom:17px}
+.element__button-container{display:flex;flex-direction:column}
+.element__counter{color:#000;font-size:13px;font-style:normal;font-weight:400;line-height:16px;text-align:center}
+.element__delete_hidden{display:none}
+.popup__delete-form{margin-top:20px}
+.popup__container-delete{min-height:181px}
 

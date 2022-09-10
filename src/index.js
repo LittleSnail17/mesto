@@ -82,13 +82,50 @@ avatarFormPopup.openPopup();
 
 
 //Тут все про карточки
+
 function createCard(item) {
-   const newCard = new Card({info:item.name, image:item.link, likes:item.likes, _id:item._id, userId: item.userId, owner_id:item.ownerId}, '.template', () => {
-     placePopup.openPopup({ info:item.name, image:item.link })
- });
+   const newCard = new Card({info:item.name, image:item.link, likes:item.likes, _id:item._id, userId: item.userId, ownerId:item.ownerId}, '.template', () => {
+   placePopup.openPopup({ info:item.name, image:item.link })},
+
+   {handleLikeCard: (newCard) => {
+   if(!newCard.isLiked()){
+      api
+      .addLike(item._id)
+      .then((item) => {
+       newCard.activationLike();
+       newCard.setCounterLikes(item.likes);
+      })
+      .catch((err) => {console.log(err);})
+   
+   }else{
+      api
+      .deleteLike(item._id)
+      .then((item) =>{
+         newCard.deActivationLike();
+         newCard.setCounterLikes(item.likes);
+      })
+      .catch((err) => {console.log(err);})
+   }},
+
+   handleDeleteCard: () => {
+      popupDeleteCard.openPopup();
+      popupDeleteCard.handleSubmitHandler(() => {
+          api.deleteCard(item._id)
+              .then(() => {
+                  newCard.handleDelete();
+                  popupDeleteCard.closePopup();
+              })
+              .catch((err) => {
+                  console.log(err);
+              })
+      })
+  },
+
+});
+       
    const elementCard = newCard.generateCard();
    return elementCard 
-}
+};
 
 const cardSection = new Section(   { items: [],
    renderer: (item) => {
@@ -147,3 +184,17 @@ api
   .catch((err) => {
    console.log(err);
  })
+
+ const popupDeleteCard = new PopupWithRemove('.popup_delete', {
+   handleSubmit: (data) => {
+       api.deleteCard(data)
+           .then(() => {
+               popupDeleteCard.closePopup();
+           })
+           .catch((err) => {
+               console.log(err);
+           })
+   }
+});
+
+popupDeleteCard.setEventListeners();

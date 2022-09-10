@@ -59,6 +59,7 @@ profileEditButton.addEventListener('click',  () => {
    const {name, about } = userInfo.getUserInfo();
    nameInput.value = name;
    jobInput.value = about;
+   profileValidator.resetValidation();
    profileFormPopup.openPopup();
 });
 
@@ -84,8 +85,8 @@ avatarFormPopup.openPopup();
 //Тут все про карточки
 
 function createCard(item) {
-   const newCard = new Card({info:item.name, image:item.link, likes:item.likes, _id:item._id, userId: item.userId, ownerId:item.ownerId}, '.template', () => {
-   placePopup.openPopup({ info:item.name, image:item.link })},
+   const newCard = new Card({name:item.name, image:item.link, likes:item.likes, _id:item._id, userId: item.userId, ownerId:item.ownerId}, '.template', () => {
+   placePopup.openPopup({ name:item.name, image:item.link })},
 
    {handleLikeCard: (newCard) => {
    if(!newCard.isLiked()){
@@ -123,11 +124,11 @@ function createCard(item) {
 
 });
        
-   const elementCard = newCard.generateCard();
+   const elementCard = newCard.generateCard(item);
    return elementCard 
 };
 
-const cardSection = new Section(   { items: [],
+const cardSection = new Section({ 
    renderer: (item) => {
      const cardElement = createCard(item);
      cardSection.addItem(cardElement); //принимает DOM-элемент и добавляет его в контейнер
@@ -137,12 +138,13 @@ const cardSection = new Section(   { items: [],
 const placePopup = new PopupWithImage('.popup_open-card');
 placePopup.setEventListeners();
 
-const cardFormPopup = new PopupWithForm({ handleSubmitForm: async (data) => {
+const cardFormPopup = new PopupWithForm({ handleSubmitForm: (data) => {
    cardFormPopup.setTextButton('Сохранение...');
-   const card = await api.getNewCard(data)
-   .then(() => {
-      cardSection.addItem(createCard(card));
-      cardFormPopup.closePopup();
+   api.getNewCard(data)
+   .then((data) => {
+      const card = createCard(data);
+                cardSection.addItem(card);
+                cardFormPopup.closePopup();
    })
    .catch((err) => {
       console.log(err);

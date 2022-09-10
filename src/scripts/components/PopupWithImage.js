@@ -7,9 +7,9 @@ export class PopupWithImage extends Popup{
         this._popupCaption = document.querySelector('.popup__caption');
     }
 
-    openPopup({ image, info }){
+    openPopup({ image, name}){
         this._popupPhoto.src = image;
-        this._popupCaption.textContent = info;
+        this._popupCaption.textContent = name;
         super.openPopup();
     }
 }

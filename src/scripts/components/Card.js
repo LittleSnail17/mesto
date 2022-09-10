@@ -4,7 +4,7 @@ import Popup from "./Popup.js";
  export default class Card {
     constructor (data , templateSelector, handleCardClick, {handleDeleteCard, handleLikeCard}){
         this._image = data.image;
-        this._info = data.info;
+        this._name = data.name;
         this._cardId = data._id;
         this._likes = data.likes;
         this._ownerId = data.ownerId;
@@ -29,8 +29,8 @@ import Popup from "./Popup.js";
         this._elementDeleteButton = this._element.querySelector('.element__delete');
         this._elementCounter = this._element.querySelector('.element__counter');
         this._elementPhoto.src = this._image;
-        this._elementPhoto.alt = this._info;
-        this._element.querySelector('.element__title').textContent = this._info;
+        this._elementPhoto.alt = this._name;
+        this._element.querySelector('.element__title').textContent = this._name;
         this._setCardEventListeners();
         this._checkOwnLike();
         this.setCounterLikes(this._likes);
@@ -46,7 +46,7 @@ import Popup from "./Popup.js";
         }
     
     isLiked() {
-         return this._likes.find(item => item._id === this._userId)
+         return this._likes.some(item => item._id === this._userId)
     }
 
     _checkOwnLike() {
@@ -76,8 +76,8 @@ import Popup from "./Popup.js";
 
     _openCardPopup(){
        cardPopupImage.src = this._image;
-       cardPopupImage.alt = this._info;
-       cardPopupCaption.textContent = this._info;
+       cardPopupImage.alt = this._name;
+       cardPopupCaption.textContent = this._name;
        this._handleCardClick();
     }
 

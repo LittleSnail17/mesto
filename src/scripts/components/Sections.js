@@ -5,23 +5,17 @@ export class Section{
      this._container = document.querySelector(containerSelector);
     }
 
-    addItem(element) { 
-        this._container.prepend(element);
-      };
+    prependItem(element) { 
+    this._container.prepend(element);
+    };
 
-      appendItem(element) { 
-        this._container.append(element);
-      };
-
-      clear() { 
-        this._container.innerHTML = '';
-      }
+    appendItem(element) { 
+    this._container.append(element);
+    };
     
-      renderItems() {
-        this.clear();
-    
-        this._items.forEach(item => {
-         this._renderer(item);
-        });
-      }
+    renderItems(items) { 
+    items.forEach(item => {
+    this._renderer(item);
+      });
+    }
 }
